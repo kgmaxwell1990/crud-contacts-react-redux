@@ -9,7 +9,8 @@ class ContactForm extends Component {
         const data = {
           id: new Date(),
           fname,
-          sname
+          sname,
+          editing: false
         }
         this.props.dispatch({type:'ADD_CONTACT', data});
         this.getFname.value = '';
@@ -17,11 +18,11 @@ class ContactForm extends Component {
       }
     render() {
         return(
-            <div>
-            <h1>Create Contact</h1>
-            <form onSubmit={this.handleSubmit}>
-            <input required type="text" ref={(input)=>this.getFname = input} placeholder="Enter First Name" /><br /><br />
-            <input required type="text" ref={(input)=>this.getSname = input} placeholder="Enter Second Name" /><br /><br />
+            <div className="contact-container">
+            <h1 className="contact_heading">Create Contact</h1>
+            <form className="form" onSubmit={this.handleSubmit}>
+            <input required type="text" ref={(input)=>this.getFname = input} placeholder="Enter First Name"/><br /><br />
+            <input required type="text" ref={(input)=>this.getSname = input} placeholder="Enter Second Name"/><br /><br />
             <button>Save</button>
             </form>
             </div>
